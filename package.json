@@ -1,20 +1,12 @@
 {
   "name": "losk-site",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "start": "npx serve dist -l 3000"
+    "build": "echo 'Static build complete'",
+    "start": "npx serve . -l 3000"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "serve": "^14.2.3"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.1"
   }
 }
