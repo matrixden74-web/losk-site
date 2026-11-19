@@ -34,4 +34,36 @@ _apxl.sendEvent = _apxl.sendEvent || function (args) {
             alt="Avito Pixel" />
     </div>
 </noscript>
+<style>
+  #cookie-notice{position:fixed;left:0;right:0;z-index:60;bottom:6.15rem;border-top:1px solid var(--border);background:color-mix(in oklch,var(--background) 94%,transparent);padding:0.75rem 1rem 0.85rem;backdrop-filter:blur(12px)}
+  @media (min-width:640px){#cookie-notice{bottom:0;padding:0.9rem 1.5rem}}
+  #cookie-notice[hidden]{display:none !important}
+  #cookie-notice .cookie-inner{margin:0 auto;max-width:64rem;display:flex;flex-direction:column;gap:0.75rem}
+  @media (min-width:640px){#cookie-notice .cookie-inner{flex-direction:row;align-items:center;justify-content:space-between}}
+  #cookie-notice p{margin:0;max-width:46rem;font-size:0.875rem;line-height:1.45}
+  #cookie-notice a{font-weight:600}
+  #cookie-accept{align-self:flex-start;white-space:nowrap}
+</style>
+<div id="cookie-notice" hidden role="dialog" aria-label="Уведомление о файлах cookie">
+  <div class="cookie-inner">
+    <p class="text-foreground">Мы используем файлы cookie, чтобы сайт работал стабильно и можно было учитывать обращения. Подробности — в <a class="text-primary" href="/privacy.html">политике конфиденциальности</a>.</p>
+    <button id="cookie-accept" type="button" class="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">Принять</button>
+  </div>
+</div>
+<script>
+(function () {
+  var key = "losk-cookie-ok";
+  var bar = document.getElementById("cookie-notice");
+  var button = document.getElementById("cookie-accept");
+  if (!bar || !button) return;
+  try {
+    if (localStorage.getItem(key) === "1") return;
+  } catch (e) {}
+  bar.hidden = false;
+  button.addEventListener("click", function () {
+    try { localStorage.setItem(key, "1"); } catch (e) {}
+    bar.hidden = true;
+  });
+})();
+</script>
 </body></html>
